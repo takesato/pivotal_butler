@@ -1,0 +1,34 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    builder (3.2.2)
+    cinch (2.0.6)
+    crack (0.4.1)
+      safe_yaml (~> 0.9.0)
+    happymapper (0.4.0)
+      libxml-ruby (~> 2.0)
+    libxml-ruby (2.6.0)
+    mime-types (1.23)
+    mini_portile (0.5.1)
+    nokogiri (1.6.0)
+      mini_portile (~> 0.5.0)
+    nokogiri-happymapper (0.5.7)
+      nokogiri (~> 1.5)
+    pivotal-tracker (0.5.10)
+      builder
+      crack
+      happymapper (>= 0.3.2)
+      nokogiri (>= 1.4.3)
+      nokogiri (>= 1.5.5)
+      nokogiri-happymapper (>= 0.5.4)
+      rest-client (~> 1.6.0)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
+    safe_yaml (0.9.4)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  cinch
+  pivotal-tracker
