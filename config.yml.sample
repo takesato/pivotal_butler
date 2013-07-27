@@ -1,0 +1,15 @@
+irc:
+  nick: butler
+  realname: takehito sato
+
+  server: localhost
+  channels:
+    - "#butlery"
+  password: abc
+  port: 6667
+  use_ssl: false
+  encoding: UTF-8
+
+pivotal_tracker:
+  api_token: your_api_token
+  project_id: 1234567
