@@ -11,6 +11,7 @@ PivotalTracker::Client.token = pivotal_setting['api_token']
 PivotalTracker::Client.use_ssl = true
 PROJECT_ID = pivotal_setting['project_id']
 NICKNAME = pivotal_setting['nickname']
+FORMAT = pivotal_setting['format']
 
 bot = Cinch::Bot.new do
   configure do |c|
@@ -73,16 +74,40 @@ bot = Cinch::Bot.new do
     end
 
     def humanize(story)
-      name = pivotal_to_irc_nickname story.owned_by
-      "#{name}: [##{story.id}] #{story.story_type}/#{story.current_state} #{story.name} #{story.url}"
+      message = FORMAT
+      %w(nick id type state story url).each do |convert_str|
+        message = message.gsub(convert_str, send(convert_str, story))
+      end
+      message
     end
 
-    def pivotal_to_irc_nickname(name)
+    def nick(story)
+      name = story.owned_by
       if name
         NICKNAME[name] || name
       else
         '未設定'
       end
+    end
+
+    def id(story)
+      "#" + story.id.to_s
+    end
+
+    def type(story)
+      story.story_type
+    end
+
+    def state(story)
+      story.current_state
+    end
+
+    def story(story)
+      story.name
+    end
+
+    def url(story)
+      story.url
     end
   end
 end
