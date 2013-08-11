@@ -10,6 +10,7 @@ pivotal_setting = config['pivotal_tracker']
 PivotalTracker::Client.token = pivotal_setting['api_token']
 PivotalTracker::Client.use_ssl = true
 PROJECT_ID = pivotal_setting['project_id']
+NICKNAME = pivotal_setting['nickname']
 
 bot = Cinch::Bot.new do
   configure do |c|
@@ -65,10 +66,23 @@ bot = Cinch::Bot.new do
     def get_stories(type, state)
       project = PivotalTracker::Project.find(PROJECT_ID)
       stories = project.stories.all(current_state: state.downcase, story_type: [type]).map do |story|
-        "#{story.id} #{story.name}"
+        humanize story
       end
       stories = ["#{type} の #{state} は見付かりませんでした"] if stories == []
       stories
+    end
+
+    def humanize(story)
+      name = pivotal_to_irc_nickname story.owned_by
+      "#{name}: [##{story.id}] #{story.story_type}/#{story.current_state} #{story.name} #{story.url}"
+    end
+
+    def pivotal_to_irc_nickname(name)
+      if name
+        NICKNAME[name] || name
+      else
+        '未設定'
+      end
     end
   end
 end

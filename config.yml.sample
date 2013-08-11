@@ -13,3 +13,5 @@ irc:
 pivotal_tracker:
   api_token: your_api_token
   project_id: 1234567
+  nickname:
+    pivotal_name: irc_nick
