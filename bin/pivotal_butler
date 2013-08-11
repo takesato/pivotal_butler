@@ -1,1 +1,6 @@
-require 'pivotal_butler'
+#!/usr/bin/env ruby
+$: << File.expand_path("../../lib/", __FILE__)
+
+require "pivotal_butler"
+
+PivotalButler::Cli.start
