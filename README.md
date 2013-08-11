@@ -18,7 +18,15 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    $ cp config.yml.sample config.yml
+    $ bundle exec pivotal_buter
+
+## ToDo
+
+* write document
+* write spec
+* i18n
+* daemonize
 
 ## Contributing
 
