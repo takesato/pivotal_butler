@@ -25,6 +25,7 @@ GEM
     rest-client (1.6.7)
       mime-types (>= 1.16)
     safe_yaml (0.9.4)
+    settingslogic (2.0.9)
 
 PLATFORMS
   ruby
@@ -32,3 +33,4 @@ PLATFORMS
 DEPENDENCIES
   cinch
   pivotal-tracker
+  settingslogic
