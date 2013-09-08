@@ -13,5 +13,6 @@ irc:
 pivotal_tracker:
   api_token: your_api_token
   project_id: 1234567
+  format: 'nick: [id] type/state story url'
   nickname:
     pivotal_name: irc_nick
