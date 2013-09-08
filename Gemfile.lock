@@ -2,18 +2,21 @@ PATH
   remote: .
   specs:
     pivotal_butler (0.0.1)
+      cinch
+      pivotal-tracker
+      settingslogic
 
 GEM
   remote: https://rubygems.org/
   specs:
     builder (3.2.2)
-    cinch (2.0.6)
+    cinch (2.0.7)
     crack (0.4.1)
       safe_yaml (~> 0.9.0)
     diff-lcs (1.2.4)
     happymapper (0.4.0)
       libxml-ruby (~> 2.0)
-    libxml-ruby (2.6.0)
+    libxml-ruby (2.7.0)
     mime-types (1.23)
     mini_portile (0.5.1)
     nokogiri (1.6.0)
@@ -22,13 +25,15 @@ GEM
       nokogiri (~> 1.5)
     pivotal-tracker (0.5.10)
       builder
+      builder
       crack
       happymapper (>= 0.3.2)
       nokogiri (>= 1.4.3)
       nokogiri (>= 1.5.5)
       nokogiri-happymapper (>= 0.5.4)
       rest-client (~> 1.6.0)
-    rake (0.9.6)
+      rest-client (~> 1.6.0)
+    rake (10.1.0)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rspec (2.14.1)
@@ -39,7 +44,7 @@ GEM
     rspec-expectations (2.14.1)
       diff-lcs (>= 1.1.3, < 2.0)
     rspec-mocks (2.14.3)
-    safe_yaml (0.9.4)
+    safe_yaml (0.9.5)
     settingslogic (2.0.9)
 
 PLATFORMS
@@ -47,9 +52,6 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.3)
-  cinch
-  pivotal-tracker
   pivotal_butler!
   rake
   rspec
-  settingslogic
