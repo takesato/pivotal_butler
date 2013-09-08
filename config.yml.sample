@@ -9,7 +9,7 @@ irc:
   port: 6667
   use_ssl: false
   encoding: UTF-8
-
+  message_mode: "NOTICE"
 pivotal_tracker:
   api_token: your_api_token
   project_id: 1234567

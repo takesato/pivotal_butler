@@ -23,10 +23,21 @@ module PivotalButler
         end
 
         on :channel do |m|
-          messages(*parse_message(m.params[1])).each { |message| m.reply message }
+          messages(*parse_message(m.params[1])).each { |message| send_message(m, message) }
         end
 
         helpers do
+          def send_message(m, message)
+            case PivotalButler::Setting.irc.message_mode.downcase
+            when 'notice'
+              m.channel.notice message
+            when 'private'
+              m.user.send message
+            else
+              m.reply message
+            end
+          end
+
           def parse_message(message)
             match = message.match(/#{self.bot.nick}: (.*) (.*)/)
             if match
